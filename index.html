@@ -28,10 +28,13 @@
                 <div class="thumbs">
                     <div class="prev" @click="slidePrev()"></div>
                     <div class="next" @click="slideNext()"></div>
-                    <div class="thumb" v-for="photo in slides[currentIndex].image">
-                            <img :src="photo" alt="">
+                    <div class="thumb" :class="currentIndex === index ? 'active': ''" v-for="(photo, index) in slides">
+                        <img :src="photo.image" alt="">
                     </div>
                     <!-- <div class="thumb">
+                        <img src="img/01.webp" alt="Ratchet & Clank" />
+                    </div>
+                    <div class="thumb">
                         <img src="img/02.webp" alt="Ratchet & Clank" />
                     </div>
                     <div class="thumb">
