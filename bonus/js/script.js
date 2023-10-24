@@ -32,6 +32,7 @@ createApp({
         return {
             currentIndex: 0,
             slides,
+            autoPlay: null,
         }
     },
 
@@ -49,7 +50,18 @@ createApp({
             } else {
                this.currentIndex--;
             }
-        }
+        },
+        clickThumb(indexThumb) {
+            this.currentIndex = indexThumb;
+        },
+
+        scroll() {
+            this.autoPlay = setInterval(this.slideNext, 2000);
+        },
+
+        stop() {
+            clearInterval(this.autoPlay);
+        },
     }
 
 }).mount('#app');
